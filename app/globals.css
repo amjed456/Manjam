@@ -1,0 +1,616 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Brand Colors */
+  --persian-blue: #0136fe;
+  --neon-lime: #caff01;
+  --white: #eef5ff;
+  
+  /* Semantic Colors - Using only the three brand colors */
+  --background: #eef5ff;
+  --foreground: #0136fe;
+  --card: #eef5ff;
+  --card-foreground: #0136fe;
+  --popover: #eef5ff;
+  --popover-foreground: #0136fe;
+  --primary: #0136fe;
+  --primary-foreground: #eef5ff;
+  --secondary: #caff01;
+  --secondary-foreground: #0136fe;
+  --muted: #eef5ff;
+  --muted-foreground: #0136fe;
+  --accent: #caff01;
+  --accent-foreground: #0136fe;
+  --destructive: #0136fe;
+  --destructive-foreground: #eef5ff;
+  --border: #0136fe;
+  --input: #0136fe;
+  --ring: #0136fe;
+  --chart-1: #0136fe;
+  --chart-2: #caff01;
+  --chart-3: #0136fe;
+  --chart-4: #caff01;
+  --chart-5: #0136fe;
+  --radius: 0.625rem;
+  --sidebar: #eef5ff;
+  --sidebar-foreground: #0136fe;
+  --sidebar-primary: #0136fe;
+  --sidebar-primary-foreground: #eef5ff;
+  --sidebar-accent: #caff01;
+  --sidebar-accent-foreground: #0136fe;
+  --sidebar-border: #0136fe;
+  --sidebar-ring: #0136fe;
+}
+
+.dark {
+  /* Dark mode using only the three brand colors */
+  --background: #0136fe;
+  --foreground: #eef5ff;
+  --card: #0136fe;
+  --card-foreground: #eef5ff;
+  --popover: #0136fe;
+  --popover-foreground: #eef5ff;
+  --primary: #caff01;
+  --primary-foreground: #0136fe;
+  --secondary: #caff01;
+  --secondary-foreground: #0136fe;
+  --muted: #0136fe;
+  --muted-foreground: #eef5ff;
+  --accent: #caff01;
+  --accent-foreground: #0136fe;
+  --destructive: #caff01;
+  --destructive-foreground: #0136fe;
+  --border: #caff01;
+  --input: #caff01;
+  --ring: #caff01;
+  --chart-1: #caff01;
+  --chart-2: #eef5ff;
+  --chart-3: #caff01;
+  --chart-4: #eef5ff;
+  --chart-5: #caff01;
+  --sidebar: #0136fe;
+  --sidebar-foreground: #eef5ff;
+  --sidebar-primary: #caff01;
+  --sidebar-primary-foreground: #0136fe;
+  --sidebar-accent: #caff01;
+  --sidebar-accent-foreground: #0136fe;
+  --sidebar-border: #caff01;
+  --sidebar-ring: #caff01;
+}
+
+@theme inline {
+  /* optional: --font-sans, --font-serif, --font-mono if they are applied in the layout.tsx */
+  --font-sans: "system-ui", "sans-serif";
+
+  /* Brand Color System - Only Three Colors */
+  --color-primary: #0136fe; /* Persian Blue */
+  --color-primary-foreground: #eef5ff; /* White */
+
+  --color-secondary: #caff01; /* Neon Lime */
+  --color-secondary-foreground: #0136fe; /* Persian Blue */
+
+  --color-accent: #caff01; /* Neon Lime */
+  --color-accent-foreground: #0136fe; /* Persian Blue */
+
+  --color-success: #caff01; /* Neon Lime */
+  --color-success-foreground: #0136fe; /* Persian Blue */
+
+  --color-warning: #caff01; /* Neon Lime */
+  --color-warning-foreground: #0136fe; /* Persian Blue */
+
+  --color-danger: #0136fe; /* Persian Blue */
+  --color-danger-foreground: #eef5ff; /* White */
+
+  --color-background: #eef5ff; /* White */
+  --color-foreground: #0136fe; /* Persian Blue */
+
+  --color-card: #eef5ff; /* White */
+  --color-card-foreground: #0136fe; /* Persian Blue */
+
+  --color-muted: #eef5ff; /* White */
+  --color-muted-foreground: #0136fe; /* Persian Blue */
+
+  --color-border: #0136fe; /* Persian Blue */
+  --color-input: #0136fe; /* Persian Blue */
+  --color-ring: #0136fe; /* Persian Blue */
+
+  /* Using direct color values from brand colors */
+  --color-background: #eef5ff;
+  --color-foreground: #0136fe;
+  --color-card: #eef5ff;
+  --color-card-foreground: #0136fe;
+  --color-popover: #eef5ff;
+  --color-popover-foreground: #0136fe;
+  --color-primary: #0136fe;
+  --color-primary-foreground: #eef5ff;
+  --color-secondary: #caff01;
+  --color-secondary-foreground: #0136fe;
+  --color-muted: #eef5ff;
+  --color-muted-foreground: #0136fe;
+  --color-accent: #caff01;
+  --color-accent-foreground: #0136fe;
+  --color-destructive: #0136fe;
+  --color-destructive-foreground: #eef5ff;
+  --color-border: #0136fe;
+  --color-input: #0136fe;
+  --color-ring: #0136fe;
+  --color-chart-1: #0136fe; /* Persian Blue */
+  --color-chart-2: #caff01; /* Neon Lime */
+  --color-chart-3: #0136fe; /* Persian Blue */
+  --color-chart-4: #caff01; /* Neon Lime */
+  --color-chart-5: #0136fe; /* Persian Blue */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-background);
+  color: var(--color-foreground);
+}
+
+/* Custom Fonts - Greta Arabic (Arabic) */
+@font-face {
+  font-family: "Greta Arabic";
+  src: url("/fonts/GretaArabic-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Greta Arabic";
+  src: url("/fonts/GretaArabic-Medium.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Greta Arabic";
+  src: url("/fonts/GretaArabic-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Custom Fonts - Asgard Trial (English) */
+@font-face {
+  font-family: "Asgard Trial";
+  src: url("/fonts/AsgardTrial-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Asgard Trial";
+  src: url("/fonts/AsgardTrial-Medium.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Asgard Trial";
+  src: url("/fonts/AsgardTrial-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* RTL/LTR-specific adjustments */
+[dir="rtl"] {
+  text-align: right;
+  font-family: "Greta Arabic", var(--font-sans), "system-ui", "sans-serif";
+}
+
+[dir="ltr"] {
+  text-align: left;
+  font-family: "Asgard Trial", var(--font-sans), "system-ui", "sans-serif";
+}
+
+/* Ensure consistent header height across languages */
+header.glass {
+  min-height: 72px; /* py-4 (16px top + 16px bottom) + 40px content = 72px */
+  max-height: 72px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+header.glass > div {
+  min-height: 40px;
+  max-height: 40px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Arabic Text Support - Ensure diacritics and dots are visible */
+.arabic-text {
+  line-height: 1.4 !important;
+  padding-bottom: 0.25rem;
+  overflow: visible;
+}
+
+[dir="rtl"] .arabic-text {
+  line-height: 1.5 !important;
+  padding-bottom: 0.5rem;
+}
+
+/* Ensure Arabic letters with dots are fully visible */
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] h5,
+[dir="rtl"] h6 {
+  line-height: 1.5;
+  padding-bottom: 0.25rem;
+  overflow: visible;
+  text-overflow: clip;
+  white-space: normal;
+}
+
+/* Ensure gradient text doesn't clip Arabic diacritics */
+.gradient-text,
+.gradient-text-animated {
+  line-height: 1.5 !important;
+  padding-bottom: 0.5rem !important;
+  overflow: visible !important;
+  display: inline-block;
+}
+
+[dir="rtl"] .gradient-text,
+[dir="rtl"] .gradient-text-animated {
+  line-height: 1.6 !important;
+  padding-bottom: 0.75rem !important;
+}
+
+/* Global Animations and Transitions */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Smooth Transitions */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+/* Enhanced Scroll Behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animation Classes */
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.6s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.6s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.4s ease-out forwards;
+}
+
+.animate-pulse-slow {
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Staggered Animation Delays */
+.animate-delay-100 {
+  animation-delay: 100ms;
+}
+
+.animate-delay-200 {
+  animation-delay: 200ms;
+}
+
+.animate-delay-300 {
+  animation-delay: 300ms;
+}
+
+.animate-delay-400 {
+  animation-delay: 400ms;
+}
+
+/* Glassmorphism Effect */
+.glass {
+  background: rgba(238, 245, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(1, 54, 254, 0.2);
+  pointer-events: auto;
+}
+
+.glass-dark {
+  background: rgba(1, 54, 254, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(202, 255, 1, 0.2);
+}
+
+/* Enhanced Card Styles */
+.card-enhanced {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(1, 54, 254, 0.1);
+}
+
+.card-enhanced:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(1, 54, 254, 0.15);
+  border-color: rgba(1, 54, 254, 0.3);
+}
+
+/* Enhanced Button Styles */
+.btn-enhanced {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-enhanced::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn-enhanced:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn-enhanced:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(1, 54, 254, 0.3);
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, #0136fe 0%, #caff01 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-animated {
+  background: linear-gradient(135deg, #0136fe 0%, #caff01 50%, #0136fe 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 3s ease infinite;
+}
+
+/* Enhanced Shadows */
+.shadow-brand {
+  box-shadow: 0 4px 14px rgba(1, 54, 254, 0.15);
+}
+
+.shadow-brand-lg {
+  box-shadow: 0 10px 30px rgba(1, 54, 254, 0.2);
+}
+
+.shadow-lime {
+  box-shadow: 0 4px 14px rgba(202, 255, 1, 0.2);
+}
+
+.shadow-lime-lg {
+  box-shadow: 0 10px 30px rgba(202, 255, 1, 0.3);
+}
+
+/* Loading Shimmer */
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(238, 245, 255, 0.4) 0%,
+    rgba(238, 245, 255, 0.8) 50%,
+    rgba(238, 245, 255, 0.4) 100%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Hover Lift Effect */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(1, 54, 254, 0.2);
+}
+
+/* Border Glow Effect */
+.border-glow {
+  position: relative;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.border-glow::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(135deg, #0136fe, #caff01);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.border-glow:hover::before {
+  opacity: 1;
+}
+
+/* Page Transition */
+.page-transition {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Section Spacing */
+.section-spacing {
+  padding: 4rem 0;
+}
+
+@media (min-width: 768px) {
+  .section-spacing {
+    padding: 6rem 0;
+  }
+}
+
+/* Enhanced Focus States */
+*:focus-visible {
+  outline: 2px solid #0136fe;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Smooth Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #eef5ff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #0136fe, #caff01);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #caff01, #0136fe);
+}
